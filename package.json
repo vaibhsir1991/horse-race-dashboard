@@ -1,0 +1,80 @@
+{
+  "name": "horse-race",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@storybook/addon-actions": "^5.3.9",
+    "@storybook/addon-knobs": "^5.3.9",
+    "@storybook/addon-links": "^5.3.9",
+    "@storybook/addons": "^5.3.9",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.3.9",
+    "@testing-library/jest-dom": "^5.0.2",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.9.1",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "commitizen": "^4.0.3",
+    "cra-shared-ui-scripts": "^1.5.1",
+    "cross-env": "^7.0.0",
+    "cz-conventional-changelog": "^3.1.0",
+    "jest-canvas-mock": "^2.2.0",
+    "jest-trx-results-processor": "^2.0.0",
+    "mkdirp": "^1.0.3",
+    "move-cli": "^1.2.1",
+    "node-sass": "^4.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "standard-version": "^7.1.0",
+    "typescript": "~3.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "version:bump": "standard-version",
+    "build:ui": "yarn prep-shared-ui && react-scripts build && yarn finalize-shared-ui",
+    "test:ci": "cross-env CI=true react-scripts test --env=jsdom --reporters=default --reporters=jest-trx-results-processor",
+    "test:watch": "react-scripts test --env=jsdom",
+    "storybook": "start-storybook -p 9009 -s public",
+    "storybook:build": "build-storybook -s public",
+    "commit": "git-cz"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "!src/**/*.stories.tsx",
+      "!src/**/*.d.ts"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
